@@ -17,7 +17,6 @@ textarea {
 }
 
 .couldbelong {
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     display: inline-block;
@@ -26,4 +25,21 @@ textarea {
 .couldbelong:hover {
     text-overflow: inherit;
     overflow: visible;
+}
+
+.jumbotron {
+  background-image: url(images/bodhibelly_logo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: right;
+
+}
+
+@media (min-width: 900px) {
+
+    .navbar {
+        background-image: url(images/bodhibelly_logo_header.png);
+        background-repeat: no-repeat;
+        background-position-x: left;
+    }
 }
