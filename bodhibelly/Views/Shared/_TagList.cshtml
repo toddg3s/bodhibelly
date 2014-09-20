@@ -1,0 +1,15 @@
+﻿@model IEnumerable<bodhibelly.Models.TagType>
+
+<ul>
+    @foreach (var tagtype in Model)
+    {
+        <li>@Html.DisplayFor(modelItem => tagtype.name)
+        <ul>
+            @foreach(var tag in tagtype.Tags)
+            {
+                <li>@Html.DisplayFor(modelItem => tag.name)</li>
+            }
+        </ul>
+        </li>
+    }
+</ul>

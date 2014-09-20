@@ -1,0 +1,6 @@
+﻿@model IEnumerable<bodhibelly.Models.Tag>
+<em>Tags: </em>
+@foreach (var item in Model) {
+    @(item.name + ", ")
+}
+<br/><br/>

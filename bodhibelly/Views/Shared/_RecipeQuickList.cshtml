@@ -1,0 +1,17 @@
+﻿@model IEnumerable<bodhibelly.Models.Recipe>
+
+<div style="font-weight: bold">
+    <span style="width: 150px; display: inline-block">Name</span>
+    <span style="width: 400px; display: inline-block">Description</span>
+    <span>Tags</span>
+</div>
+ @foreach (var recipe in Model)
+ {
+     <div>
+         <span style="width: 150px; display: inline-block">@Html.ActionLink(recipe.name, "Details", "Recipes", new { Id = recipe.Id }, null)</span>
+         <span class="couldbelong" style="width: 400px;"><span title="@recipe.description">@recipe.description</span></span>
+         @{ var taglist = String.Join(", ",recipe.Tags.Select(t => t.name).ToArray()); }
+         <span class="couldbelong" title="@taglist">@taglist</span>
+     </div>
+ }
+</table>

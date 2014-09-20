@@ -1,0 +1,21 @@
+﻿@model bodhibelly.Models.Home
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Bodhi Belly</h1>
+    <p class="lead">The path to enlightenment isn't through the stomach, but it helps when it's happy.</p>
+</div>
+
+<div class="body-content">
+    This site houses a collection of recipes from students within the <a href="http://bodhiheartsangha.org" target="_blank">BodhiHeart</a> Sangha.  They have
+    been collected over years of retreats, work parties and other get-togethers.  Below, you can start searching through recipes to find the one
+    you like.<br/><br/>
+    Here's a quick sampling of some featured recipes:<br/>
+    @Html.Partial("_RecipeQuickList", Model.FeaturedRecipes)<br/>
+    Here's a full recipe list: @Html.ActionLink("All Recipes", "Index", "Recipes", null, null)<br/><br/>
+</div>
+<div>
+
+</div>

@@ -1,0 +1,44 @@
+﻿@model bodhibelly.Models.Recipe
+
+@{
+    ViewBag.Title = "Bodhi Belly - " + Model.name;
+}
+
+<div>
+    <h2>@Model.name</h2>
+    <hr />
+    @if (!String.IsNullOrWhiteSpace(Model.picture)) {
+    <span style="float:right"><img src="@Model.picture" alt="@Model.name" width="300" height="200" /></span>
+    }
+    @Html.DisplayFor(model => model.description)
+    <br/><br />
+    @if (!String.IsNullOrWhiteSpace(Model.link))
+    {
+        <a href="@Model.link" target="_blank">@Html.DisplayFor(model => model.link)</a><br/><br/>
+    }
+    @if (Model.posted.HasValue)
+    {
+        <em>Posted: </em>@Model.posted.Value.ToShortDateString()
+    }
+    @Html.Partial("_SimpleTagList",Model.Tags)
+    <strong>Ingredients</strong><br/>
+    @foreach (var ingredient in Model.Ingredients)
+    {
+        <span style="display: inline-block; width: 70px">@ingredient.quantity @ingredient.unit</span><span>@ingredient.name</span><br />
+    }
+    <br/>
+    <strong>Instructions</strong>
+    <table style="border: 0px; width: 100%">
+        @foreach (var instruction in Model.Instructions)
+        {
+            <tr><td style="display: inline-block; width: 40px;">@instruction.step</td><td>@instruction.description</td></tr>
+        }
+    </table>
+    <div style="clear: both"></div>
+</div>
+<!--
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+-->
